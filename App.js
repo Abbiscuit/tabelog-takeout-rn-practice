@@ -1,21 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
-export default function App() {
+/* components */
+import NavigationBar from './components/NavigationBar';
+import TabMenu from './components/TabMenu';
+import MessageBoard from './components/MessageBoard';
+import Card from './components/Card';
+import CardList from './components/CardList';
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <StatusBar style="dark" />
+      <SafeAreaView>
+        <NavigationBar sectionTitle="探す" />
+        <TabMenu />
+        {/* Message Board */}
+        <MessageBoard />
+
+        <Text style={styles.sectionTitle}>お得に注文できるお店</Text>
+        <CardList />
+
+        <Text style={styles.sectionTitle}>お得に注文できるお店</Text>
+        <CardList />
+      </SafeAreaView>
     </View>
   );
-}
+};
+
+export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  sectionTitle: {
+    fontSize: 20,
+    lineHeight: 24,
+    fontWeight: '700',
+    marginHorizontal: 16,
+    marginBottom: 16,
   },
 });
